@@ -87,7 +87,7 @@ export const ConditionalToolTip = withTheme(
     }
     const dataNode = first(nodes);
     const metrics = (dataNode && dataNode.metrics) || [];
-    const content = (
+    return (
       <div style={{ minWidth: 200 }} data-test-subj="conditionalTooltipContent">
         <div
           style={{
@@ -120,20 +120,6 @@ export const ConditionalToolTip = withTheme(
           );
         })}
       </div>
-    );
-
-    return (
-      <EuiToolTip delay="regular" position="right" content={content}>
-        <div
-          data-test-subj="conditionalTooltipMouseHandler"
-          onMouseOver={handleDataLoad}
-          onFocus={handleDataLoad}
-          onMouseOut={cancelDataLoad}
-          onBlur={cancelDataLoad}
-        >
-          {children}
-        </div>
-      </EuiToolTip>
     );
   }
 );
